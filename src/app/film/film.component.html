@@ -1,0 +1,33 @@
+<div>
+
+  <img align="centre" width="50%" height="auto" [src]="app.serverURL + film.img[0].img">
+  <p>название: {{film.name}}</p>
+  <p>описание: {{film.description}}</p>
+  <p>начало: {{film.dateStart}}</p>
+  <p>конец: {{film.dateStop}}</p>
+  <table class="iksweb">
+    <tbody>
+    <tr>
+      <td [colSpan]="film.halls[0].hall.length+1">
+
+        <div class="input-group input-group-sm mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-sm"> введите кодовое слово</span>
+          <input type="text" [(ngModel)]="key" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+      </td>
+    </tr>
+    <tr *ngFor="let item of film.halls">ряд №{{item.name}}:
+      <td *ngFor="let hal of item.hall">
+        <button class="btn" [ngClass]="{b1: !hal.armchair, b3 : hal.aaa , b2: hal.armchair} "
+                (click)="(hal.aaa = (!hal.aaa && ( hal.armchair == false))) ">{{hal.name}}</button>
+      </td>
+    </tr>
+    <tr>
+      <td [colSpan]="film.halls[0].hall.length+1">
+        <button style="width: 100%" class="btn btn btn-outline-primary" (click)="bron()"> Забронирывать</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

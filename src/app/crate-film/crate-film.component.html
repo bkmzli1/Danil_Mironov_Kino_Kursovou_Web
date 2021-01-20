@@ -1,0 +1,38 @@
+<div class="text_padding">
+
+  <form [action]="app.nameSyt +'/film/add'" method="post">
+
+    <label class="container mt-5">
+      <div [hidden]="!error">Заполните все поля  </div>
+      <p></p>
+      <input required type="text" name="title" placeholder="Введите название фильма" class="form-control"
+             [(ngModel)]="name">
+      <p></p>
+      <input required type="text" name="anons" placeholder="Введите название краткое описание" class="form-control"
+             [(ngModel)]="lable">
+      <p></p>
+      <textarea name="full_text" placeholder="Введите полное описание" class="form-control"
+                [(ngModel)]="description"></textarea>
+      <p></p>
+      <p>Ведите дату <input required type="date" id="date" name="date" [(ngModel)]="data"></p>
+      <p></p>
+      <p>Ведите время начала <input required type="time" name="timeStart" [(ngModel)]="timeStart"></p>
+
+      <p>Ведите время остановки <input required type="time" name="timeStop" [(ngModel)]="timeStop">
+      <p></p>
+      <p> загрузить изоброжение <input required type="file"
+                                       id="file"
+                                       name="file"
+
+                                       (change)="handleFileInputTile($event.target.files)" accept="image/png,image/jpeg"></p>
+      <button type="submit" class="btn-success" (click)="create()">Добавить фильм</button>
+
+    </label>
+
+  </form>
+
+
+</div>
+
+
+

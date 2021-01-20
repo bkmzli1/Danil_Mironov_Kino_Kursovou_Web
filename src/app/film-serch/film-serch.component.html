@@ -1,0 +1,29 @@
+<div>
+  <div class="input-group input-group-sm mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-sm">проверить кодовое слово</span>
+    <input type="text" [(ngModel)]="key"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+  </div>
+</div>
+<button style="width: 100%" class="btn btn btn-outline-primary" (click)="(serch())"> проверить</button>
+
+
+<div *ngFor="let film of films" >
+  <p>название: {{film.name}}</p>
+  <p>описание: {{film.description}}</p>
+  <p>начало: {{film.dateStart}}</p>
+  <p>конец: {{film.dateStop}}</p>
+  <table class="iksweb">
+    <tbody>
+    <tr *ngFor="let item of film.halls">ряд №{{item.name}}:
+      <td *ngFor="let hal of item.hall">
+        <button class="btn" [hidden]="key != hal.key" [ngClass]="{b1: !hal.armchair, b3 : hal.aaa , b2: hal.armchair} "
+                (click)="(hal.aaa = (!hal.aaa && ( hal.armchair == false))) ">{{hal.name}}</button>
+      </td>
+    </tr>
+    <tr>
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>

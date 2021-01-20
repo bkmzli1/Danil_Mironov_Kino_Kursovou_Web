@@ -1,0 +1,30 @@
+<div _ngcontent-hrc-c18="" class="album py-5 ">
+  <div _ngcontent-hrc-c18="" class="container">
+    <div _ngcontent-hrc-c18="" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      <div class="col" *ngFor="let item of film">
+        <div class="card shadow-sm">
+          <img class="d-block w-100" width="100%" height="auto" style="max-height: 100px" [src]="app.serverURL + item.img[0].img" >
+
+
+
+
+
+          <div class="card-body">
+            <p class="card-text">Название: {{item.name}}</p>
+            <p class="card-text">Краткое описание: {{item.lable}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button"  (click)="view(item.id)" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">{{item.date}}<p>начало в {{item.dateStart}} <br> конец в {{item.dateStop}}</p></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
